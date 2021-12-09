@@ -42,6 +42,9 @@ class QuizInterface:
             self.canvas.itemconfig(self.question_text, text=q_text)
         else:
             self.canvas.itemconfig(self.question_text, text="You have reached the end of the quiz")
+            self.false_button.config(state="disabled")
+            self.true_button.config(state="disabled")
+            
     def true_pressed(self):
         is_right = self.quiz.check_answer("True")
         self.give_feedback(is_right)
